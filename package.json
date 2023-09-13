@@ -1,0 +1,12 @@
+{
+  "name": "type-challenges",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Kaique Sacchi",
+  "license": "ISC",
+  "dependencies": {
+    "@type-challenges/utils": "^0.1.1"
+  }
+}
