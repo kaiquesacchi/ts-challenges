@@ -35,3 +35,12 @@ type WithoutReadonly = {
 };
 //   ^?
 /* ---------------------------------------------------------------------------------------------- */
+
+/** Optional
+ * You can turn a property optional by adding `?:`, and required by adding `-?:`
+ */
+type AllRequired<T extends object> = {
+  [Key in keyof T]-?: T[Key];
+};
+type ExampleAllRequired = AllRequired<{ a?: string; b?: number }>;
+//   ^?
