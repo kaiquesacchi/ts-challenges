@@ -151,3 +151,17 @@ type ThreeGreaterThanOne = IsGreater<3, 1>;
 
 type TwoGreaterThanFive = IsGreater<2, 5>;
 //   ^?
+
+/* ---------------------------------------------------------------------------------------------- */
+/*                                      Constrain Object Key                                      */
+/* ---------------------------------------------------------------------------------------------- */
+/*
+An object key can be constrained by adding a `as` after its inferred type and using conditional
+types.
+*/
+type OmitUnderscoredKeys<T extends object> = {
+  [Key in keyof T as Key extends `_${string}` ? never : Key]: T[Key];
+};
+
+type OmittedUnderscoredKeys = OmitUnderscoredKeys<{ a: 1; b: 2; _c: 3 }>;
+//   ^?
