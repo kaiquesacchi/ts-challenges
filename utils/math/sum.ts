@@ -1,4 +1,4 @@
-import { Reverse } from "./string-manipulation";
+import { Reverse } from "../string-manipulation";
 
 export type Sum<A extends number | string, B extends number | string> = Reverse<
   _Add<Reverse<A>, Reverse<B>>

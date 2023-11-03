@@ -11,7 +11,7 @@
 */
 
 /* _____________ Your Code Here _____________ */
-import type { Sum } from "../../utils/sum";
+import type { Sum } from "../../utils/math/sum";
 
 type Triangular<
   N extends number,
