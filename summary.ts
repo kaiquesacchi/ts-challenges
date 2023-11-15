@@ -68,7 +68,7 @@ type WithoutReadonly = {
 };
 
 /* ---------------------------------------------------------------------------------------------- */
-/*                                            Optional                                            */
+/*                                      Required and Optional                                     */
 /* ---------------------------------------------------------------------------------------------- */
 /*
 You can turn a property optional by adding `?:`, and required by adding `-?:`
@@ -85,6 +85,16 @@ type AllRequired<T extends object> = {
 };
 
 type ExampleAllRequired = AllRequired<{ a?: string; b?: number }>;
+//   ^?
+
+/** Being required or optional is a modifier that gets attached to the value. A required value
+ * extends its optional counterpart, but not the opposite
+ */
+type GetRequired<T extends object> = {
+  [Key in keyof T as T[Key] extends Required<T>[Key] ? Key : never]: T[Key];
+};
+
+type ExampleGetRequired = GetRequired<{ a: true; b: undefined; c?: 1 }>;
 //   ^?
 
 /* ---------------------------------------------------------------------------------------------- */
